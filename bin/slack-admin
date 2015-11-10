@@ -7,7 +7,6 @@ path = path.join("/")
 
 kexec = require "kexec"
 command_args = process.argv.slice(2)
-console.log path
 
 unless command_args[0]?
   console.log "Usage: #{script} <command-name>"
