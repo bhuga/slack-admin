@@ -30,7 +30,7 @@ module.exports = (casperLib) ->
       throw new Error("#{key} is a required environment variable to log in.")
 
   casper.okta_team = system.env.OKTA_TEAM
-  casper.okta_url = "https://#{okta_team}.okta.com"
+  casper.okta_url = "https://#{casper.okta_team}.okta.com"
   casper.okta_slack_redirect_url = system.env.OKTA_SLACK_REDIRECT_URL
   casper.slack_url = "https://#{system.env.SLACK_TEAM}.slack.com"
   casper.okta_user = system.env.SLACK_OKTA_USER
@@ -45,8 +45,8 @@ module.exports = (casperLib) ->
 
   casper.then ->
     creds =
-      password: okta_pass,
-      username: okta_user
+      password: casper.okta_pass,
+      username: casper.okta_user
     @fill('form#credentials', creds, true)
 
   casper.thenOpen casper.okta_slack_redirect_url, ->
