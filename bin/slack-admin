@@ -1,8 +1,18 @@
 #!/usr/bin/env coffee
 require 'coffee-errors'
 
+path = __filename.split("/")
+script = path.pop()
+path = path.join("/")
+
 kexec = require "kexec"
 command_args = process.argv.slice(2)
-command_args[0] = "#{command_args[0]}.coffee"
+console.log path
+
+unless command_args[0]?
+  console.log "Usage: #{script} <command-name>"
+  process.exit 1
+
+command_args[0] = "#{path}/../#{command_args[0]}.coffee"
 
 kexec "node_modules/.bin/casperjs", command_args
