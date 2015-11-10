@@ -9,7 +9,7 @@ casper = okta(casperLib)
 room = casper.cli.get(0)
 setting = casper.cli.get(1)
 
-casper.thenOpen "https://#{casper.slack_team}.slack.com/archives/#{room}", ->
+casper.thenOpen "#{casper.slack_url}/archives/#{room}", ->
 
 retention_link_selector = "a#data_retention_link"
 
