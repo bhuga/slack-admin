@@ -17,6 +17,7 @@ casper.then ->
     @click retention_link_selector
   , ->
     @capture('retention_error.png')
+    phantom.exit()
   , 5000
 
 casper.then ->
@@ -31,6 +32,7 @@ casper.then ->
         console.log "OUTPUT:#{value}"
   , ->
     @capture('retention_select_failure.png')
+    phantom.exit()
 
 casper.run ->
   phantom.onError =  ->
