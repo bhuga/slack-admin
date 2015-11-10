@@ -9,7 +9,7 @@
   "license": "UNLICENSE",
   "preferGlobal": true,
   "bin": {
-    "slack-admin": "index.coffee"
+    "slack-admin": "./bin/slack-admin"
   },
   "dependencies": {
     "coffee-script": "1.6.3",
