@@ -13,5 +13,6 @@ unless command_args[0]?
   process.exit 1
 
 command_args[0] = "#{path}/../#{command_args[0]}.coffee"
+command_args.unshift "--web-security=no"
 
 kexec "node_modules/.bin/casperjs", command_args
