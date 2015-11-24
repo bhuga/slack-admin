@@ -8,9 +8,7 @@
   "author": "Ben Lavender",
   "license": "UNLICENSE",
   "preferGlobal": true,
-  "bin": {
-    "slack-admin": "./bin/slack-admin"
-  },
+  "bin": "./bin/slack-admin",
   "dependencies": {
     "coffee-script": "1.6.3",
     "kexec": "1.2.0",
