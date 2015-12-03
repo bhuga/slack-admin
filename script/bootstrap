@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "$(uname -s)" = "Darwin" ] && [ ! -d ./slimerjs ]; then
+  wget http://download.slimerjs.org/releases/0.9.6/slimerjs-0.9.6-mac.tar.bz2
+  bunzip2 slimerjs-0.9.6.tar.bz2
+  tar -xf slimerjs-0.9.6.tar
+  mv slimerjs-0.9.6 slimerjs
+  wget http://download.slimerjs.org/releases/0.9.6/slimerjs-0.9.6-mac.tar.bz2
+elsif [ ! -d ./slimerjs ]; 
+  wget http://download.slimerjs.org/releases/0.9.6/slimerjs-0.9.6-linux-x86_64.tar.bz2
+  bunzip2 slimerjs-0.9.6.tar.bz2
+  tar -xf slimerjs-0.9.6.tar
+  mv slimerjs-0.9.6 slimerjs
+fi
