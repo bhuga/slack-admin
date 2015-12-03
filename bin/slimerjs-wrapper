@@ -1,0 +1,8 @@
+#!/bin/sh
+
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  slimerjs $@
+else
+  xvfb-run slimerjs $@
+fi
