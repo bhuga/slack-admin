@@ -43,11 +43,11 @@ casper.then(function() {
   });
 });
 
-/*
+// sometimes things exit without a result; this seems to help
 casper.then(function() {
   sleep(5000);
 });
-*/
+
 
 casper.run(function() {
   phantom.onError = function() {};
