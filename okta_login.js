@@ -4,23 +4,22 @@
   system = require('system');
 
   module.exports = function(casperLib) {
-    var casper, key, logLevel, shim, verbose, _i, _len, _ref;
-    logLevel = system.env.SLACK_ADMIN_DEBUG != null ? "debug" : "error";
-    verbose = system.env.SLACK_ADMIN_DEBUG != null ? true : false;
+    var verbose, casper, key, shim, _i, _len, _ref;
     casper = casperLib.create();
-    if (system.env.SLACK_ADMIN_DEBUG != null) {
+    verbose = !(system.env.SLACK_ADMIN_DEBUG == null || system.env.SLACK_ADMIN_DEBUG === "");
+    if (verbose) {
       casper.options.verbose = true;
       casper.options.logLevel = "debug";
       casper.on('page.error', function(msg, trace) {
         return this.echo("Error: " + msg, "ERROR");
       });
     } else {
-
+      casper.options.logLevel = "error"
     }
     casper.on('remote.message', function(message) {
       if (message.indexOf("OUTPUT:") === 0) {
         return this.echo(message.replace("OUTPUT:", ""));
-      } else if (system.env.SLACK_ADMIN_DEBUG != null) {
+      } else if (verbose) {
         return this.echo(message);
       }
     });
