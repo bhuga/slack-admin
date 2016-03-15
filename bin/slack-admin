@@ -14,5 +14,6 @@ unless command_args[0]?
 
 command_args[0] = "#{path}/../#{command_args[0]}.coffee"
 command_args.unshift "--web-security=no"
+command_args.unshift "--ssl-protocol=any"
 
 kexec "#{path}/../node_modules/.bin/casperjs", command_args
